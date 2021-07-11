@@ -1,5 +1,29 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+
 public class Arvore {
     public No T;
+    public static int REGIAO = 0;
+    public static int ESTADO = 1;
+    public static int MUNICIPIO = 2;
+    public static int CODUF = 3;
+    public static int CODMUN = 4;
+    public static int CODREGIAOSAUDE = 5;
+    public static int NOMEREGIAOSAUDE = 6;
+    public static int DATA = 7;
+    public static int SEMANAEPI = 8;
+    public static int POPULACAOTCU2019 = 9;
+    public static int CASOSACUMULADO = 10;
+    public static int CASOSNOVOS = 11;
+    public static int OBITOSACUMULADO = 12;
+    public static int OBITOSNOVOS = 13;
+    public static int RECUPERADOSNOVOS = 14;
+    public static int EMACOMPANHAMENTONOVOS = 15;
+    public static int INTERIOR = 16;
+
 
     public Arvore() {
         T = null;
@@ -13,15 +37,59 @@ public class Arvore {
         T = insere(T, dados, null);
     }
 
+    public void preenche(String path, String split, int coluna) {
+        String line = "";
+        Info dados = new Info();
+        try {
+
+            BufferedReader br = new BufferedReader(new FileReader(path));
+
+            while ((line = br.readLine()) != null) {
+
+                String[] key = line.split(split);
+                try {
+                    dados.regiao = key[REGIAO];
+                    dados.estado = key[ESTADO];
+                    dados.municipio = key[MUNICIPIO];
+                    dados.coduf = key[CODUF];
+                    dados.codmun = key[CODMUN];
+                    dados.codRegiaoSaude = key[CODREGIAOSAUDE];
+                    dados.nomeRegiaoSaude = key[NOMEREGIAOSAUDE];
+                    dados.data = key[DATA];
+                    dados.semanaEpi = key[SEMANAEPI];
+                    dados.populacaoTcu2019 = key[POPULACAOTCU2019];
+                    dados.casoAcumulado = key[CASOSACUMULADO];
+                    dados.casosNovos = key[CASOSNOVOS];
+                    dados.obitosAcumulado = key[OBITOSACUMULADO];
+                    dados.obitosNovos = key[OBITOSNOVOS];
+                    dados.recuperaDoNovos = key[RECUPERADOSNOVOS];
+                    dados.emcompanhamemtoNovos = key[EMACOMPANHAMENTONOVOS];
+                    dados.interior = key[INTERIOR];
+                    System.out.println(key[coluna]);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    continue;
+                }
+                insere(dados);
+                System.out.println("inseriu");
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public No insere(No T, Info dados, No pai) {
         if (T == null) {
             T = new No(dados, pai);
         } else {
             pai = T;
-            if (dados.codigoMunicipio.chave < T.dados.codigoMunicipio.chave) {
+            if (dados.chaveMunData.compareToIgnoreCase(T.dados.chaveMunData) > 0) {
                 T.filhoEsq = insere(T.filhoEsq, dados, pai);
-            } else if (dados.codigoMunicipio.chave > T.dados.codigoMunicipio.chave) {
+            } else if (dados.chaveMunData.compareToIgnoreCase(T.dados.chaveMunData) < 0) {
                 T.filhoDir = insere(T.filhoDir, dados, pai);
             }
         }
