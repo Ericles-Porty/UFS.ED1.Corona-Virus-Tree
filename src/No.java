@@ -10,7 +10,7 @@ public class No {
     }
 
     public No(Info dados, No pai) {
-        this.dados = null;
+        this.dados = dados;
         this.filhoEsq = null;
         this.filhoDir = null;
         this.pai = pai;
