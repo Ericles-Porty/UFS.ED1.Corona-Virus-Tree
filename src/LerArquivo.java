@@ -8,9 +8,13 @@ public class LerArquivo {
 	
 	public static int qtdLinhas(String path, int contLine, int coluna) throws FileNotFoundException {
 		BufferedReader br = new BufferedReader(new FileReader(path));
-    	
+		//String[] lineArq; 
+		
     	try {
 			while ((line = br.readLine()) != null) {
+				/*lineArq = line.split(";");
+				if(lineArq[4].equalsIgnoreCase(""))
+					continue;*/
 				contLine++;
 			}
     	} catch (Exception e) {
@@ -33,6 +37,8 @@ public class LerArquivo {
 					continue;
 				}
 				lineArq = line.split(";");
+				/*if(lineArq[4].equalsIgnoreCase(""))
+					continue;*/
 	        	for(int c = 0; c < coluna; c++) {
 	        		try {
 	        			key[c][linha] = lineArq[c];
@@ -50,4 +56,29 @@ public class LerArquivo {
         }
     	return linha;
 	}
+	// Método para ordenar a matriz
+	/*public void qSort(String[][] vetor, int inicio, int fim){
+		int i, j, x, aux;
+		i = inicio;
+		j = fim;
+		x = vetor[i];
+		do{
+			while(vetor[i] < x && i < fim) 
+				i++;
+			while(vetor[j] > x && j > inicio) 
+				j--;
+			if(i<=j){
+				aux = vetor[i];
+				vetor[i] = vetor[j];
+				vetor[j] = aux;
+				i++;
+				j--;
+			}
+		} while(i<=j);
+		if(inicio < j)
+			qSort(vetor, inicio, j);
+		if(i < fim)
+			qSort(vetor,i,fim);
+	}*/
+
 }
