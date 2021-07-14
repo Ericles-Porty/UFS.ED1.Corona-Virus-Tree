@@ -1,11 +1,6 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-
 public class Arvore {
     public No T;
+    public Info dados;
     public static int REGIAO = 0;
     public static int ESTADO = 1;
     public static int MUNICIPIO = 2;
@@ -36,60 +31,25 @@ public class Arvore {
     public void insere(Info dados) {
         T = insere(T, dados, null);
     }
-
-    public void preenche(String path, String split, int coluna) {
-        String line = "";
-        Info dados = new Info();
-        try {
-
-            BufferedReader br = new BufferedReader(new FileReader(path));
-
-            while ((line = br.readLine()) != null) {
-
-                String[] key = line.split(split);
-                try {
-                    dados.regiao = key[REGIAO];
-                    dados.estado = key[ESTADO];
-                    dados.municipio = key[MUNICIPIO];
-                    dados.coduf = key[CODUF];
-                    dados.codmun = key[CODMUN];
-                    dados.codRegiaoSaude = key[CODREGIAOSAUDE];
-                    dados.nomeRegiaoSaude = key[NOMEREGIAOSAUDE];
-                    dados.data = key[DATA];
-                    dados.semanaEpi = key[SEMANAEPI];
-                    dados.populacaoTcu2019 = key[POPULACAOTCU2019];
-                    dados.casoAcumulado = key[CASOSACUMULADO];
-                    dados.casosNovos = key[CASOSNOVOS];
-                    dados.obitosAcumulado = key[OBITOSACUMULADO];
-                    dados.obitosNovos = key[OBITOSNOVOS];
-                    dados.recuperaDoNovos = key[RECUPERADOSNOVOS];
-                    dados.emcompanhamemtoNovos = key[EMACOMPANHAMENTONOVOS];
-                    dados.interior = key[INTERIOR];
-                    System.out.println(key[coluna]);
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    continue;
-                }
-                insere(dados);
-                System.out.println("inseriu");
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-
-        } catch (IOException e) {
-            e.printStackTrace();
+    
+    public void inserirBIN(String[][] key, int i, int j) {
+        int pos = (i + j) / 2;
+        dados = new Info(key[0][pos], key[1][pos], key[2][pos], key[3][pos], key[4][pos], key[5][pos], key[6][pos], key[7][pos], key[8][pos], key[9][pos], key[10][pos], key[11][pos], key[12][pos], key[13][pos], key[14][pos], key[15][pos], key[16][pos]);
+        insere(dados);
+        if (i < j) {
+            inserirBIN(key, i, pos - 1);
+            inserirBIN(key, pos + 1, j);
         }
     }
-
 
     public No insere(No T, Info dados, No pai) {
         if (T == null) {
             T = new No(dados, pai);
         } else {
             pai = T;
-            if (dados.chaveMunData.compareToIgnoreCase(T.dados.chaveMunData) > 0) {
+            if (dados.chave.compareToIgnoreCase(T.dados.chave) > 0) {
                 T.filhoEsq = insere(T.filhoEsq, dados, pai);
-            } else if (dados.chaveMunData.compareToIgnoreCase(T.dados.chaveMunData) < 0) {
+            } else if (dados.chave.compareToIgnoreCase(T.dados.chave) < 0) {
                 T.filhoDir = insere(T.filhoDir, dados, pai);
             }
         }
@@ -99,7 +59,7 @@ public class Arvore {
 
     /*public void Remove(No T, Info X) {
         if (T == null)
-            System.out.print(" Elemento não encontrado \n");
+            System.out.print(" Elemento nÃ£o encontrado \n");
         else if (X.chave == T.item.chave) {
             No P = T;
             if ((T.esq == null) && (T.dir == null)) {
@@ -145,7 +105,7 @@ public class Arvore {
     public void emOrdem(No T) {
         if (T != null) {
             emOrdem(T.filhoEsq);
-            System.out.print(T.dados + " ");//implementar o dados.
+            System.out.print(T.dados + " ");
             emOrdem(T.filhoDir);
         }
     }
@@ -165,4 +125,27 @@ public class Arvore {
             System.out.print(T.dados + " ");
         }
     }
+    
+    public No pesquisa(String dados) {
+    	return pesquisa(T, dados);
+    }
+
+	public No pesquisa(No no, String chave) {
+		if(no == null) {
+			return no;
+		}
+		else {
+			if(no.dados.chave.equalsIgnoreCase(chave)) {
+				System.out.println(no.dados.toString());
+				return no;
+			} else {
+				if (chave.compareToIgnoreCase(T.dados.chave) > 0) { // Esquerda
+		            no = pesquisa(no.filhoEsq, chave);
+		        } else if (chave.compareToIgnoreCase(T.dados.chave) < 0) { // Direita
+		        	no = pesquisa(no.filhoDir, chave);
+		        }
+			}
+		}
+		return no;
+	}
 }
