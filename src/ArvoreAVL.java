@@ -115,4 +115,6 @@ public final class ArvoreAVL extends Arvore {
         }
     }
 
+    @Override
+	protected void InserirBIN(String[][] matriz, int i, int j) {}
 }

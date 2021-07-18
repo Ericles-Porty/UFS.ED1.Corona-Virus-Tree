@@ -21,8 +21,8 @@ public abstract class Arvore {
     protected static int INTERIOR = 16;
 
     protected abstract void Insere(Info dados);
-
     protected abstract TipoNo Insere(TipoNo raiz, Info dados, TipoNo pai);
+    protected abstract void InserirBIN(String[][] matriz, int i, int j);
 
     public Arvore() {
         raiz = null;
