@@ -1,4 +1,4 @@
-public class Arvore {
+public abstract class Arvore {
     public TipoNo raiz;
     public Info dados;
 
@@ -20,11 +20,9 @@ public class Arvore {
     protected static int EMACOMPANHAMENTONOVOS = 15;
     protected static int INTERIOR = 16;
 
-    protected  void Insere(Info dados){}
+    protected abstract void Insere(Info dados);
 
-    protected  TipoNo Insere(TipoNo raiz, Info dados, TipoNo pai){
-        return pai;
-    }
+    protected abstract TipoNo Insere(TipoNo raiz, Info dados, TipoNo pai);
 
     public Arvore() {
         raiz = null;

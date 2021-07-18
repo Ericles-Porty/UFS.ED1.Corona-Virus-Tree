@@ -42,7 +42,7 @@ public class Info {
         this.emcompanhamemtoNovos = emcompanhamemtoNovos;
         this.interior = interior;
     }
-
+/*
     public Info(Info dados){
 
 
@@ -68,7 +68,7 @@ public class Info {
 
 
     }
-
+*/
     public String toString() {
         return "Info [regiao=" + regiao + ", estado=" + estado + ", municipio=" + municipio + ", coduf=" + coduf
                 + ", codmun=" + codmun + ", codRegiaoSaude=" + codRegiaoSaude + ", nomeRegiaoSaude=" + nomeRegiaoSaude
