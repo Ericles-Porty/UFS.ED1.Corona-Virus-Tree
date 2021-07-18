@@ -54,7 +54,7 @@ public class Arquivo {
     public static void QuickSort(String[][] matriz, int inicio, int fim) {
         int i, j, index;
         String x;
-        String[] aux;
+        String[] aux = new String[1];
         i = inicio;
         j = fim;
         if (matriz[i][4].equals("")) {

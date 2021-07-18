@@ -28,7 +28,8 @@ public class App {
             indiceLinha = Arquivo.PreencheMatriz(path[i], matriz, indiceLinha, quantidadeDeColunas);
         }
 
-        //Arquivo.QuickSort(matriz, 0, quantidadeDeLinhas - 1);
+        Arquivo.QuickSort(matriz, 0, indiceLinha - 1);
+        
 
         Arvore[] Floresta = new Arvore[2];
         Floresta[idArvoreBB] = new ArvoreBB();
@@ -36,12 +37,12 @@ public class App {
 
         System.out.print("\n\n ======== INSERCAO BINARIA ========\n");
         Floresta[idArvoreBB].raiz = null;
-        ((ArvoreBB) Floresta[idArvoreBB]).InserirBIN(matriz, 0, quantidadeDeLinhas - 1);
+        ((ArvoreBB) Floresta[idArvoreBB]).InserirBIN(matriz, 0, indiceLinha - 1);
+
 
          String chave = JOptionPane.showInputDialog("Digite codmun ou coduf seguido da data (aaaa-mm-dd)");
-        ArvoreBB T1 = new ArvoreBB();
 
-
+        ArvoreAVL T1 = new ArvoreAVL();
             System.out.print("========INSERINDO AVL========\n");
 
         System.out.print("Inserindo a chave 37\n");
@@ -99,10 +100,10 @@ public class App {
         System.out.print("Inserindo a chave 8\n");
         Info item18 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "4411b", "Itabaiana", "Itabaiana", "2021-07-09", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
 
-
+        /*
         TipoNo no = Floresta[idArvoreBB].Pesquisa("3145202021-01-20");
         if (no == null)
             System.out.println("NOT FOUND THIS LEAF");
-
+*/
     }
 }
