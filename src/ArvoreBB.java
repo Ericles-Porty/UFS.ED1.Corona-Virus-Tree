@@ -1,32 +1,31 @@
-public final class ArvoreBB extends Arvore{
-	@Override
-	public void Insere(Info dados) {
+public final class ArvoreBB extends Arvore {
+    @Override
+    public void Insere(Info dados) {
         raiz = Insere(raiz, dados, null);
     }
 
-    public void InserirBIN(String[][] key, int i, int j) {
-        int pos = (i + j) / 2;
-        dados = new Info(key[pos][REGIAO], key[pos][ESTADO], key[pos][MUNICIPIO], key[pos][CODUF], key[pos][CODMUN], key[pos][CODREGIAOSAUDE], key[pos][NOMEREGIAOSAUDE], key[pos][DATA], key[pos][SEMANAEPI], key[pos][POPULACAOTCU2019], key[pos][CASOSACUMULADO], key[pos][CASOSNOVOS], key[pos][OBITOSACUMULADO], key[pos][OBITOSNOVOS], key[pos][RECUPERADOSNOVOS], key[pos][EMACOMPANHAMENTONOVOS], key[pos][INTERIOR]);
-        Insere(dados);
-        if (i < j) {
-            InserirBIN(key, i, pos - 1);
-            InserirBIN(key, pos + 1, j);
-        }
-    }
-	@Override
-    public No Insere(No raiz, Info dados, No pai) {
-        if (raiz == null) {
-            raiz = new No(dados, pai);
+    @Override
+    public TipoNo Insere(TipoNo tipoNo, Info dados, TipoNo pai) {
+        if (tipoNo == null) {
+            tipoNo = new TipoNo(dados, pai);
         } else {
-            pai = raiz;
-            if (dados.chave.compareToIgnoreCase(raiz.dados.chave) < 0) {
-                raiz.filhoEsq = Insere(raiz.filhoEsq, dados, pai);
-            } else if (dados.chave.compareToIgnoreCase(raiz.dados.chave) > 0) {
-                raiz.filhoDir = Insere(raiz.filhoDir, dados, pai);
+            pai = tipoNo;
+            if (dados.chave.compareToIgnoreCase(tipoNo.dados.chave) < 0) {
+                tipoNo.filhoEsq = Insere(tipoNo.filhoEsq, dados, pai);
+            } else if (dados.chave.compareToIgnoreCase(tipoNo.dados.chave) > 0) {
+                tipoNo.filhoDir = Insere(tipoNo.filhoDir, dados, pai);
             }
         }
-        return raiz;
-    
-	}
+        return tipoNo;
+    }
 
+    public void InserirBIN(String[][] matriz, int i, int j) {
+        int posicaoLinha = (i + j) / 2;
+        dados = new Info(matriz[posicaoLinha][REGIAO], matriz[posicaoLinha][ESTADO], matriz[posicaoLinha][MUNICIPIO], matriz[posicaoLinha][CODUF], matriz[posicaoLinha][CODMUN], matriz[posicaoLinha][CODREGIAOSAUDE], matriz[posicaoLinha][NOMEREGIAOSAUDE], matriz[posicaoLinha][DATA], matriz[posicaoLinha][SEMANAEPI], matriz[posicaoLinha][POPULACAOTCU2019], matriz[posicaoLinha][CASOSACUMULADO], matriz[posicaoLinha][CASOSNOVOS], matriz[posicaoLinha][OBITOSACUMULADO], matriz[posicaoLinha][OBITOSNOVOS], matriz[posicaoLinha][RECUPERADOSNOVOS], matriz[posicaoLinha][EMACOMPANHAMENTONOVOS], matriz[posicaoLinha][INTERIOR]);
+        Insere(dados);
+        if (i < j) {
+            InserirBIN(matriz, i, posicaoLinha - 1);
+            InserirBIN(matriz, posicaoLinha + 1, j);
+        }
+    }
 }
