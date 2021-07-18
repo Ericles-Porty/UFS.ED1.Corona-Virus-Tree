@@ -28,7 +28,6 @@ public class LerArquivo {
     	String[] lineArq; 
     	
     	BufferedReader ar = new BufferedReader(new FileReader(path));
-    	
     	int ft=0;
     	try {
 			while ((line = ar.readLine()) != null) {
@@ -41,7 +40,7 @@ public class LerArquivo {
 					continue;*/
 	        	for(int c = 0; c < coluna; c++) {
 	        		try {
-	        			key[c][linha] = lineArq[c];
+	        			key[linha][c] = lineArq[c];
 	        		}catch (ArrayIndexOutOfBoundsException e) {
 	                    continue;
 	                }	
@@ -57,28 +56,36 @@ public class LerArquivo {
     	return linha;
 	}
 	// Método para ordenar a matriz
-	/*public void qSort(String[][] vetor, int inicio, int fim){
-		int i, j, x, aux;
+	public static void qSort(String[][] mat, int inicio, int fim){
+		int i, j, index; 
+		String x;
+		String[] aux = new String[1];
 		i = inicio;
 		j = fim;
-		x = vetor[i];
+		if(mat[i][4].equals("")) {
+			x = mat[i][3]+mat[i][7];
+			index = 3;
+        } else {
+        	x = mat[i][4]+mat[i][7];
+        	index = 4;
+        }
 		do{
-			while(vetor[i] < x && i < fim) 
+			while((mat[i][index]+mat[i][7]).compareToIgnoreCase(x) < 0 && i < fim) 
 				i++;
-			while(vetor[j] > x && j > inicio) 
+			while((mat[j][index]+mat[j][7]).compareToIgnoreCase(x) > 0 && j > inicio) 
 				j--;
-			if(i<=j){
-				aux = vetor[i];
-				vetor[i] = vetor[j];
-				vetor[j] = aux;
+			if(i <= j){
+				aux = mat[i];
+				mat[i] = mat[j];
+				mat[j] = aux;
 				i++;
 				j--;
 			}
 		} while(i<=j);
 		if(inicio < j)
-			qSort(vetor, inicio, j);
+			qSort(mat, inicio, j);
 		if(i < fim)
-			qSort(vetor,i,fim);
-	}*/
+			qSort(mat, i, fim);
+	}
 
 }

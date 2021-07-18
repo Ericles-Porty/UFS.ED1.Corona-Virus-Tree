@@ -1,3 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+
 public class Arvore {
     public No T;
     public Info dados;
@@ -34,7 +40,7 @@ public class Arvore {
     
     public void inserirBIN(String[][] key, int i, int j) {
         int pos = (i + j) / 2;
-        dados = new Info(key[0][pos], key[1][pos], key[2][pos], key[3][pos], key[4][pos], key[5][pos], key[6][pos], key[7][pos], key[8][pos], key[9][pos], key[10][pos], key[11][pos], key[12][pos], key[13][pos], key[14][pos], key[15][pos], key[16][pos]);
+        dados = new Info(key[pos][0], key[pos][1], key[pos][2], key[pos][3], key[pos][4], key[pos][5], key[pos][6], key[pos][7], key[pos][8], key[pos][9], key[pos][10], key[pos][11], key[pos][12], key[pos][13], key[pos][14], key[pos][15], key[pos][16]);
         insere(dados);
         if (i < j) {
             inserirBIN(key, i, pos - 1);
@@ -47,61 +53,15 @@ public class Arvore {
             T = new No(dados, pai);
         } else {
             pai = T;
-            if (dados.chave.compareToIgnoreCase(T.dados.chave) > 0) {
+            if (dados.chave.compareToIgnoreCase(T.dados.chave) < 0) {
                 T.filhoEsq = insere(T.filhoEsq, dados, pai);
-            } else if (dados.chave.compareToIgnoreCase(T.dados.chave) < 0) {
+            } else if (dados.chave.compareToIgnoreCase(T.dados.chave) > 0) {
                 T.filhoDir = insere(T.filhoDir, dados, pai);
             }
         }
         return T;
     }
 
-
-    /*public void Remove(No T, Info X) {
-        if (T == null)
-            System.out.print(" Elemento nÃ£o encontrado \n");
-        else if (X.chave == T.item.chave) {
-            No P = T;
-            if ((T.esq == null) && (T.dir == null)) {
-                if (T.pai == null) {
-                    this.T = null;
-                } else if (T.item.chave > T.pai.item.chave)
-                    T.pai.dir = null;
-                else
-                    T.pai.esq = null;
-            } else if (T.esq == null) {
-                if (T.pai != null) {
-                    if (T.dir != null) T.dir.pai = T.pai;
-                    if (T.item.chave > T.pai.item.chave)
-                        T.pai.dir = T.dir;
-                    else
-                        T.pai.esq = T.dir;
-                } else {
-                    this.T = T.dir;
-                    this.T.pai = null;
-                }
-            } else if (T.dir == null) {
-                if (T.pai != null) {
-                    if (T.esq != null) T.esq.pai = T.pai;
-                    if (T.item.chave > T.pai.item.chave)
-                        T.pai.dir = T.esq;
-                    else
-                        T.pai.esq = T.esq;
-                } else {
-                    this.T = T.esq;
-                    this.T.pai = null;
-                }
-            } else {
-                P = getMax(T.esq);
-                T.dados = P.dados;
-            }
-
-        } else if (X.chave < T.item.chave)
-            Remove(T.esq, X);
-        else
-            Remove(T.dir, X);
-    }
-    */
     public void emOrdem(No T) {
         if (T != null) {
             emOrdem(T.filhoEsq);
@@ -135,13 +95,13 @@ public class Arvore {
 			return no;
 		}
 		else {
-			if(no.dados.chave.equalsIgnoreCase(chave)) {
+			if(no.dados.chave.compareToIgnoreCase(chave) == 0) {
 				System.out.println(no.dados.toString());
 				return no;
 			} else {
-				if (chave.compareToIgnoreCase(T.dados.chave) > 0) { // Esquerda
+				if (chave.compareToIgnoreCase(no.dados.chave) < 0) { // Esquerda
 		            no = pesquisa(no.filhoEsq, chave);
-		        } else if (chave.compareToIgnoreCase(T.dados.chave) < 0) { // Direita
+		        } else if (chave.compareToIgnoreCase(no.dados.chave) > 0) { // Direita
 		        	no = pesquisa(no.filhoDir, chave);
 		        }
 			}

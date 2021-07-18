@@ -1,6 +1,4 @@
 public class Info {
-    public String chaveMunData;
-    public String chaveUF;
     public String chave;
 
     public String regiao;
@@ -22,13 +20,10 @@ public class Info {
     public String interior;
 
     public Info(String regiao, String estado, String municipio, String coduf, String codmun, String codRegiaoSaude, String nomeRegiaoSaude, String data, String semanaEpi, String populacaoTcu2019, String casoAcumulado, String casosNovos, String obitosAcumulado, String obitosNovos, String recuperaDoNovos, String emcompanhamemtoNovos, String interior) {
-        if(codmun == null)
-        	return;
-    	if(codmun.equals(null)) {
+    	if(codmun.equals("")) {
         	this.chave = coduf+data;
         } else
         	this.chave = codmun+data;
-        this.chaveMunData = codmun+data;
     	this.regiao = regiao;
         this.estado = estado;
         this.municipio = municipio;
