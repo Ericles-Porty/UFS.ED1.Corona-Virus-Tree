@@ -32,11 +32,13 @@ public class App {
 
     	//System.out.println(key[800000][3]);
    
-    	Arvore T1 = new Arvore();
+    	Arvore[] T1 = new Arvore[2];
+    	T1[0] = new ArvoreBB();
+    	T1[1] = new ArvoreAVL();
     	
     	System.out.print("\n\n ======== INSERCÃO BINÁRIA ========\n");
-        T1.T = null;
-        T1.inserirBIN(key, 0, linha-1);
+        T1[0].T = null;
+        ((ArvoreBB)T1[0]).inserirBIN(key, 0, linha-1);
         /*System.out.println("Raiz: "+ T1.T.dados.chave);
         System.out.println("F. Dir: "+T1.T.filhoDir.dados.chave);
         System.out.println("F. E: "+T1.T.filhoEsq.dados.chave);
@@ -49,7 +51,7 @@ public class App {
         // String chave = JOptionPane.showInputDialog("Digite codmun ou coduf seguido da data (aaaa-mm-dd)");
         // T1.pesquisa(T1.T, "5300102021-07-04"); // 3126752020-05-03
         
-        No no = T1.pesquisa("322020-08-26");
+        No no = T1[0].pesquisa("3145202021-01-20");
         if(no == null)
         	System.out.println("Not FOUND");
 

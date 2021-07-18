@@ -3,6 +3,9 @@ public class No {
     No filhoEsq;
     No filhoDir;
     Info dados;
+    int bal = 0; 
+	int hesq = 0; 
+	int hdir = 0;
 
     public No() {
         this.filhoEsq = null;
