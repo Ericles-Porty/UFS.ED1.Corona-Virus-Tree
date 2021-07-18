@@ -43,6 +43,32 @@ public class Info {
         this.interior = interior;
     }
 
+    public Info(Info dados){
+
+
+        this.chave = dados.chave;
+
+        this.regiao = dados.regiao;
+        this.estado = dados.estado;
+        this.municipio = dados.municipio;
+        this.coduf = dados.coduf;
+        this.codmun = dados.codmun;
+        this.codRegiaoSaude = dados.codRegiaoSaude;
+        this.nomeRegiaoSaude = dados.nomeRegiaoSaude;
+        this.data = dados.data;
+        this.semanaEpi = dados.semanaEpi;
+        this.populacaoTcu2019 = dados.populacaoTcu2019;
+        this.casoAcumulado = dados.casoAcumulado;
+        this.casosNovos = dados.casosNovos;
+        this.obitosAcumulado = dados.obitosAcumulado;
+        this.obitosNovos = dados.obitosNovos;
+        this.recuperaDoNovos = dados.recuperaDoNovos;
+        this.emcompanhamemtoNovos = dados.emcompanhamemtoNovos;
+        this.interior = dados.interior;
+
+
+    }
+
     public String toString() {
         return "Info [regiao=" + regiao + ", estado=" + estado + ", municipio=" + municipio + ", coduf=" + coduf
                 + ", codmun=" + codmun + ", codRegiaoSaude=" + codRegiaoSaude + ", nomeRegiaoSaude=" + nomeRegiaoSaude

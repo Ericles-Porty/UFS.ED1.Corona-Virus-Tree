@@ -58,7 +58,6 @@ public final class ArvoreAVL extends Arvore {
             }
         }
     }
-
     public int Balanco(TipoNo no) {
         altura = 0;
         BalanceamentoPreOrdem(no.filhoEsq, 0);

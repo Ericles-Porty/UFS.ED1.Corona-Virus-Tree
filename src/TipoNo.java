@@ -8,7 +8,7 @@ public class TipoNo {
 	int alturaDir = 0;
 
     public TipoNo(Info dados, TipoNo pai) {
-        this.dados = dados;
+        this.dados = new Info (dados);
         this.filhoEsq = null;
         this.filhoDir = null;
         this.pai = pai;
