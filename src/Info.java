@@ -69,14 +69,14 @@ public class Info {
 
     }
 */
-    public String toString() {
-        return "Info [regiao=" + regiao + ", estado=" + estado + ", municipio=" + municipio + ", coduf=" + coduf
-                + ", codmun=" + codmun + ", codRegiaoSaude=" + codRegiaoSaude + ", nomeRegiaoSaude=" + nomeRegiaoSaude
-                + ", data=" + data + ", semanaEpi=" + semanaEpi + ", populacaoTcu2019=" + populacaoTcu2019
-                + ", casoAcumulado=" + casoAcumulado + ", casosNovos=" + casosNovos + ", obitosAcumulado="
-                + obitosAcumulado + ", obitosNovos=" + obitosNovos + ", recuperaDoNovos=" + recuperaDoNovos
-                + ", emcompanhamemtoNovos=" + emcompanhamemtoNovos + ", interior=" + interior + "]";
-    }
+public String toString() {
+    return "Info [\nregiao=" + regiao + ", \nestado=" + estado + ", \nmunicipio=" + municipio + ", \ncoduf=" + coduf
+            + ", \ncodmun=" + codmun + ", \ncodRegiaoSaude=" + codRegiaoSaude + ", \nnomeRegiaoSaude=" + nomeRegiaoSaude
+            + ", \ndata=" + data + ", \nsemanaEpi=" + semanaEpi + ", \npopulacaoTcu2019=" + populacaoTcu2019
+            + ", \ncasoAcumulado=" + casoAcumulado + ", \ncasosNovos=" + casosNovos + ", \nobitosAcumulado="
+            + obitosAcumulado + ", \nobitosNovos=" + obitosNovos + ", \nrecuperaDoNovos=" + recuperaDoNovos
+            + ", \nemcompanhamemtoNovos=" + emcompanhamemtoNovos + ", \ninterior=" + interior + "\n]";
+}
 
 
 }

@@ -14,13 +14,16 @@ public class App {
             System.getProperty("user.dir") + "\\BigData\\HIST_PAINEL_COVIDBR_2021_Parte2_07jul2021.csv"};
 
     public static void main(String[] args) throws IOException {
-
+    	String dataDir = Arquivo.PegaDirArq(path[3]);
+    	System.out.println("Contando Linhas...");
+ 
         int quantidadeDeColunas = 17, quantidadeDeLinhas = 0;
 
         for (int i = 0; i < 4; i++) {
             quantidadeDeLinhas = Arquivo.ContaLinhas(path[i], quantidadeDeLinhas);
         }
 
+        System.out.println("Preenchendo matriz...");
         String[][] matriz = new String[quantidadeDeLinhas][quantidadeDeColunas];
 
         int indiceLinha = 0;
@@ -28,8 +31,9 @@ public class App {
             indiceLinha = Arquivo.PreencheMatriz(path[i], matriz, indiceLinha, quantidadeDeColunas);
         }
 
+        System.out.println("QuickSort...");
         Arquivo.QuickSort(matriz, 0, indiceLinha - 1);
-        
+      
 
         Arvore[] Floresta = new Arvore[2];
         Floresta[idArvoreBB] = new ArvoreBB();
@@ -41,7 +45,7 @@ public class App {
 
 
          String chave = JOptionPane.showInputDialog("Digite codmun ou coduf seguido da data (aaaa-mm-dd)");
-
+/*
         ArvoreAVL T1 = new ArvoreAVL();
             System.out.print("========INSERINDO AVL========\n");
 
@@ -49,7 +53,7 @@ public class App {
 
         Info item1 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "2222u", "Itabaiana", "Itabaiana", "2021-07-01", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
         T1.Insere(item1);
-        T1.Pesquisa(item1.chave);
+        //T1.Pesquisa(item1.chave);
 
         System.out.print("Inserindo a chave 10\n");
         Info item2 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "", "Itabaiana", "Itabaiana", "2021-07-11", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
@@ -99,11 +103,11 @@ public class App {
 
         System.out.print("Inserindo a chave 8\n");
         Info item18 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "4411b", "Itabaiana", "Itabaiana", "2021-07-09", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-
-        /*
-        TipoNo no = Floresta[idArvoreBB].Pesquisa("3145202021-01-20");
+*/
+        
+        TipoNo no = Floresta[idArvoreBB].Pesquisa(chave+dataDir);
         if (no == null)
             System.out.println("NOT FOUND THIS LEAF");
-*/
+
     }
 }

@@ -25,7 +25,7 @@ public class Arquivo {
         String[] linhaTemp;
 
         BufferedReader abreArquivo = new BufferedReader(new FileReader(path));
-        int firstTime = 0; // Serve pra pular o cabeçalho do excel
+        int firstTime = 0; // Serve pra pular o cabecalho do excel
         try {
             while ((line = abreArquivo.readLine()) != null) {
                 if (firstTime == 0) {
@@ -81,6 +81,25 @@ public class Arquivo {
             QuickSort(matriz, inicio, j);
         if (i < fim)
             QuickSort(matriz, i, fim);
+    }
+    
+    public static String PegaDirArq(String path) {
+    	String[] linhaTemp = path.split(".csv");
+    	
+    	String dataDir = linhaTemp[0].split("_")[5];
+    	String[] mes = {"jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"};
+    	String ultVers = dataDir.substring(5, 9)+'-';
+    	
+    	for (int i = 0; i < mes.length; i++) {
+			if(mes[i].equalsIgnoreCase(dataDir.substring(2, 5)))
+				if(i+1 < 10)
+					ultVers += "0"+(i+1) + '-';	
+				else
+					ultVers += (i+1) + '-';	
+		}
+    	
+    	ultVers += dataDir.substring(0, 2);  	
+    	return ultVers;
     }
 
 }
