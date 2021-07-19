@@ -40,78 +40,52 @@ public class App {
         Floresta[idArvoreAVL] = new ArvoreAVL();
 
         System.out.print("\n\n ======== INSERCAO BINARIA ========\n");
-        Floresta[idArvoreBB].raiz = null;
         System.out.println("Inserindo na arvore de busca binaria...");
+        Floresta[idArvoreBB].raiz = null;
         Floresta[idArvoreBB].InserirBIN(matriz, 0, indiceLinha - 1);
+
+
+        System.out.print("========INSERINDO AVL========\n");
+        Floresta[idArvoreAVL].raiz = null;
+        System.out.println("Inserindo na arvore de busca binaria...");
+
+
+        Floresta[idArvoreAVL].InserirAVL(matriz, 0, indiceLinha - 1);
         matriz = null;  //  joguem essas 2 linhas para baixo depois de jogarem a matriz na arvore
         System.gc();    //  ela ta apagando a matriz pra limpar memoria
 
-        System.out.println("Digite a chave...");
-        String chave = JOptionPane.showInputDialog("Digite codmun ou coduf seguido da data (aaaa-mm-dd)");
+        //System.out.println("Digite a chave...");
+        //String chave = JOptionPane.showInputDialog("Digite codmun ou coduf seguido da data (aaaa-mm-dd)");
 
-        /*ArvoreAVL T1 = new ArvoreAVL();
-            System.out.print("========INSERINDO AVL========\n");
-
-        System.out.print("Inserindo a chave 37\n");
-
-        Info item1 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "2222u", "Itabaiana", "Itabaiana", "2021-07-01", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item1);
-        //T1.Pesquisa(item1.chave);
-
-        System.out.print("Inserindo a chave 10\n");
-        Info item2 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "", "Itabaiana", "Itabaiana", "2021-07-11", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item2);
-
-
-        System.out.print("Inserindo a chave 30\n");
-        Info item3 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "", "Itabaiana", "Itabaiana", "2021-07-01", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item3);
-
-
-        System.out.print("Inserindo a chave 80\n");
-        Info item4 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "2222f", "Itabaiana", "Itabaiana", "2021-07-04", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item4);
-
-
-
-        System.out.print("Inserindo a chave 100\n");
-        Info item5 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "", "Itabaiana", "Itabaiana", "2021-07-02", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item5);
-
-
-        System.out.print("Inserindo a chave 5\n");
-        Info item6 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "", "Itabaiana", "Itabaiana", "2021-07-03", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item6);
-
-
-        System.out.print("Inserindo a chave 180\n");
-        Info item7 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "", "Itabaiana", "Itabaiana", "2021-07-04", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item7);
-
-
-        System.out.print("Inserindo a chave 90\n");
-        Info item8 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "4411b", "Itabaiana", "Itabaiana", "2021-07-06", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item8);
-
-
-        System.out.print("Inserindo a chave 35\n");
-        Info item9 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "4411b", "Itabaiana", "Itabaiana", "2021-07-07", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item9);
-
-
-        System.out.print("Inserindo a chave 85\n");
-        Info item10 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "4411b", "Itabaiana", "Itabaiana", "2021-07-08", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-        T1.Insere(item10);
-
-
-        System.out.print("Inserindo a chave 8\n");
-        Info item18 = new Info("Itabaiana", "Sergipe", "Itabaiana", "25", "4411b", "Itabaiana", "Itabaiana", "2021-07-09", "Itabaiana", "Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana","Itabaiana");
-*/
 
         //TipoNo no = Floresta[idArvoreBB].Pesquisa(chave+lastDate); //Codigo uf + data
-        TipoNo no = Floresta[idArvoreBB].Pesquisa(chave+lastDate); //Codigo mun + data
-        if (no == null)
-            System.out.println("NOT FOUND THIS LEAF");
 
+        String tipoArvore;
+        TipoNo no;
+
+        String chave;
+
+
+        do {
+            do {
+                tipoArvore = JOptionPane.showInputDialog("Digite o tipo de árvore que quer consultar? (1) ABB | (2) AVL");
+            } while (tipoArvore.equals('1') || tipoArvore.equals('2'));
+            System.out.println("Digite a chave...");
+            chave = JOptionPane.showInputDialog("Digite codmun ou coduf seguido da data (aaaa-mm-dd)");
+
+            if (tipoArvore.equals('1')) {
+                no = Floresta[idArvoreBB].Pesquisa(chave + lastDate); //Codigo mun + data
+                if (no == null)
+                    System.out.println("NOT FOUND THIS LEAF");
+            } else if (tipoArvore.equals('2')) {
+                no = Floresta[idArvoreAVL].Pesquisa(chave + lastDate); //Codigo mun + data
+                if (no == null)
+                    System.out.println("NOT FOUND THIS LEAF");
+            }
+
+            //if (no == null)
+            //  System.out.println("NOT FOUND THIS LEAF");
+
+        } while (!chave.equals('0'));
     }
 }

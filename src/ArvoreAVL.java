@@ -9,7 +9,7 @@ public final class ArvoreAVL extends Arvore {
 
     @Override
     public void Insere(Info dados) {
-        System.out.print("Inserindo " + dados.chave + "\n");
+        //System.out.print("Inserindo " + dados.chave + "\n");
         raiz = Insere(raiz, dados, null);
         Avl(p);
     }
@@ -29,6 +29,15 @@ public final class ArvoreAVL extends Arvore {
         return no;
     }
 
+
+    public void InserirAVL(String[][] matriz, int i, int j) {
+        for(i = 0; i < j; i++) {
+            dados = new Info(matriz[i][REGIAO], matriz[i][ESTADO], matriz[i][MUNICIPIO], matriz[i][CODUF], matriz[i][CODMUN], matriz[i][DATA], matriz[i][CASOSACUMULADO], matriz[i][CASOSNOVOS], matriz[i][OBITOSACUMULADO], matriz[i][OBITOSNOVOS]);
+            Insere(dados);
+        }
+    }    
+    
+
     public void Avl(TipoNo no) {
         if (no != null) {
             no.fatorBalanceamento = Balanco(no);
@@ -38,20 +47,20 @@ public final class ArvoreAVL extends Arvore {
 
                 if (no.alturaEsq >= no.alturaDir)
                     if (no.filhoEsq.alturaEsq >= no.filhoEsq.alturaDir) {
-                        System.out.print("Rotacao simples de " + no.dados.chave + " para a direita\n");
+                        //System.out.print("Rotacao simples de " + no.dados.chave + " para a direita\n");
                         RotacaoDireita(no);
                     } else {
-                        System.out.print("Rotacao dupla de " + no.dados.chave + " para a direita\n");
+                        //System.out.print("Rotacao dupla de " + no.dados.chave + " para a direita\n");
                         RotacaoEsquerda(no.filhoEsq);
                         RotacaoDireita(no);
                     }
 
                 if (no.alturaDir >= no.alturaEsq)
                     if (no.filhoDir.alturaDir >= no.filhoDir.alturaEsq) {
-                        System.out.print("Rotacao simples de " + no.dados.chave + " para a esquerda\n");
+                        //System.out.print("Rotacao simples de " + no.dados.chave + " para a esquerda\n");
                         RotacaoEsquerda(no);
                     } else {
-                        System.out.print("Rotacao dupla de " + no.dados.chave + " para a esquerda\n");
+                        //System.out.print("Rotacao dupla de " + no.dados.chave + " para a esquerda\n");
                         RotacaoDireita(no.filhoDir);
                         RotacaoEsquerda(no);
                     }

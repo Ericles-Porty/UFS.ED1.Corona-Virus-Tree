@@ -13,9 +13,12 @@ public abstract class Arvore {
     protected static int OBITOSACUMULADO = 8;
     protected static int OBITOSNOVOS = 9;
 
+    public int contadorPesquisa = 1; //colocar private
+
     protected abstract void Insere(Info dados);
     protected abstract TipoNo Insere(TipoNo raiz, Info dados, TipoNo pai);
     protected abstract void InserirBIN(String[][] matriz, int i, int j);
+    protected abstract void InserirAVL(String[][] matriz, int i, int j);
 
     public Arvore() {
         raiz = null;
@@ -31,8 +34,10 @@ public abstract class Arvore {
         } else {
             if (no.dados.chave.compareToIgnoreCase(chave) == 0) {
                 System.out.println(no.dados);
+                System.out.println("Total de Comparacoes: " + contadorPesquisa);
                 return no;
             } else {
+                contadorPesquisa++;
                 if (chave.compareToIgnoreCase(no.dados.chave) < 0) {
                     no = Pesquisa(no.filhoEsq, chave);
                 } else if (chave.compareToIgnoreCase(no.dados.chave) > 0) {

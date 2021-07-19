@@ -28,4 +28,8 @@ public final class ArvoreBB extends Arvore {
             InserirBIN(matriz, posicaoLinha + 1, j);
         }
     }
+
+    public void Avl(TipoNo no) {}
+
+    public void InserirAVL(String[][] matriz, int i, int j) { }
 }
