@@ -62,30 +62,28 @@ public class App {
 
         String tipoArvore;
         TipoNo no;
+        TipoNo no2;
 
         String chave;
 
 
+
         do {
-            do {
-                tipoArvore = JOptionPane.showInputDialog("Digite o tipo de árvore que quer consultar? (1) ABB | (2) AVL");
-            } while (tipoArvore.equals('1') || tipoArvore.equals('2'));
             System.out.println("Digite a chave...");
             chave = JOptionPane.showInputDialog("Digite codmun ou coduf seguido da data (aaaa-mm-dd)");
-
-            if (tipoArvore.equals('1')) {
-                no = Floresta[idArvoreBB].Pesquisa(chave + lastDate); //Codigo mun + data
+            if (!chave.equals("0")) {
+                System.out.println("Pesqusisa na Arvore Binaria:");
+                no = Floresta[idArvoreBB].Pesquisa(chave); //Codigo mun + data
                 if (no == null)
                     System.out.println("NOT FOUND THIS LEAF");
-            } else if (tipoArvore.equals('2')) {
-                no = Floresta[idArvoreAVL].Pesquisa(chave + lastDate); //Codigo mun + data
-                if (no == null)
+
+                System.out.println("Pesqusisa na Arvore AVL:");
+                no2 = Floresta[idArvoreAVL].Pesquisa(chave); //Codigo mun + data
+                if (no2 == null)
                     System.out.println("NOT FOUND THIS LEAF");
             }
+        } while (!chave.equals("0"));
 
-            //if (no == null)
-            //  System.out.println("NOT FOUND THIS LEAF");
 
-        } while (!chave.equals('0'));
     }
 }
