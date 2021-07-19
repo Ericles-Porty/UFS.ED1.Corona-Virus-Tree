@@ -7,18 +7,11 @@ public abstract class Arvore {
     protected static int MUNICIPIO = 2;
     protected static int CODUF = 3;
     protected static int CODMUN = 4;
-    protected static int CODREGIAOSAUDE = 5;
-    protected static int NOMEREGIAOSAUDE = 6;
-    protected static int DATA = 7;
-    protected static int SEMANAEPI = 8;
-    protected static int POPULACAOTCU2019 = 9;
-    protected static int CASOSACUMULADO = 10;
-    protected static int CASOSNOVOS = 11;
-    protected static int OBITOSACUMULADO = 12;
-    protected static int OBITOSNOVOS = 13;
-    protected static int RECUPERADOSNOVOS = 14;
-    protected static int EMACOMPANHAMENTONOVOS = 15;
-    protected static int INTERIOR = 16;
+    protected static int DATA = 5;
+    protected static int CASOSACUMULADO = 6;
+    protected static int CASOSNOVOS = 7;
+    protected static int OBITOSACUMULADO = 8;
+    protected static int OBITOSNOVOS = 9;
 
     protected abstract void Insere(Info dados);
     protected abstract TipoNo Insere(TipoNo raiz, Info dados, TipoNo pai);
@@ -27,7 +20,6 @@ public abstract class Arvore {
     public Arvore() {
         raiz = null;
     }
-
 
     public TipoNo Pesquisa(String dados) {
         return Pesquisa(raiz, dados);
