@@ -34,9 +34,9 @@ public class Arquivo {
                 }
                 linhaTemp = Arquivo.linhaTemp.split(";");
                 int indiceColuna = 0;
-                for (int col = 0; col < quantidadeDeColunas; col++) {
+                for (int col = 0; col < 17; col++) {
                     try {
-                        if (col == 5 || col == 6 || col == 8 || col == 9 || col == 14 || col == 15 || col == 16)
+                        if (col == 5 || col == 6 || col == 8 || col == 9 || col > 13)
                             continue;
                         key[indiceLinha][indiceColuna++] = linhaTemp[col];
                     } catch (ArrayIndexOutOfBoundsException e) {

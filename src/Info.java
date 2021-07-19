@@ -30,7 +30,7 @@ public class Info {
     }
 
     public String toString() {
-        return "Info{\n" +
+        return "Info{" +
                 "\nchave='" + chave + '\'' +
                 "\nregiao='" + regiao + '\'' +
                 "\nestado='" + estado + '\'' +
