@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: darkgrey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.chaveRegiao.ChaveRegiaoController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="183.0" layoutY="82.0" prefHeight="37.0" prefWidth="235.0" text="Escolha sua chave ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <Button fx:id="btNO" layoutX="183.0" layoutY="158.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="101.0" text="Norte" />
+      <Button fx:id="btNE" layoutX="301.0" layoutY="158.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="101.0" text="Nordeste" />
+      <Button fx:id="btCO" layoutX="115.0" layoutY="219.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="101.0" text="Centro-Oeste" />
+      <Button fx:id="btS" layoutX="243.0" layoutY="219.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="101.0" text="Sul" />
+      <Button fx:id="btSE" layoutX="368.0" layoutY="219.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="101.0" text="Sudeste" />
+      <Button fx:id="btVoltar" layoutX="486.0" layoutY="339.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="71.0" text="Voltar" />
+   </children>
+</AnchorPane>
