@@ -7,9 +7,9 @@ public class Info {
     private final String coduf;
     private final String codmun;
     private final String data;
-    private final String casoAcumulado;
+    public final String casoAcumulado;
     private final String casosNovos;
-    private final String obitosAcumulado;
+    public final String obitosAcumulado;
     private final String obitosNovos;
 
     public Info(String regiao, String estado, String municipio, String coduf, String codmun, String data, String casoAcumulado, String casosNovos, String obitosAcumulado, String obitosNovos) {

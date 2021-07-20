@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 
 public class Arquivo {
     public static String linhaTemp = "";
@@ -52,6 +53,54 @@ public class Arquivo {
 
         }
         return indiceLinha;
+    }
+
+    public static int[][] GuardaRegioes(String lastDate, Arvore arv){
+
+        String[] norte = {"11", "12", "13", "14", "15", "16", "17"};
+        String[] nordeste = {"21", "22", "23", "24", "25", "26", "27", "28", "29"};
+        String[] sudeste = {"31", "32", "33", "35"};
+        String[] sul = {"41", "42", "43"};
+        String[] centro_oeste = {"50", "51", "52", "53"};
+        int[][] acumulRegiao = new int[5][3];
+        TipoNo no;
+
+        for (int i = 0; i < norte.length; i++) {
+            no = arv.Pesquisa(norte[i]+lastDate);
+            acumulRegiao[0][0] += Integer.parseInt(no.dados.casoAcumulado); 
+            acumulRegiao[0][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[0][2] += arv.Consultas(norte[i]+lastDate);
+        }
+
+        for (int i = 0; i < nordeste.length; i++) {
+            no = arv.Pesquisa(nordeste[i]+lastDate);
+            acumulRegiao[1][0] += Integer.parseInt(no.dados.casoAcumulado); 
+            acumulRegiao[1][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[1][2] += arv.Consultas(nordeste[i]+lastDate);
+        }
+
+        for (int i = 0; i < sudeste.length; i++) {
+            no = arv.Pesquisa(sudeste[i]+lastDate);
+            acumulRegiao[2][0] += Integer.parseInt(no.dados.casoAcumulado); 
+            acumulRegiao[2][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[2][2] += arv.Consultas(sudeste[i]+lastDate);
+        }
+
+        for (int i = 0; i < sul.length; i++) {
+            no = arv.Pesquisa(sul[i]+lastDate);
+            acumulRegiao[3][0] += Integer.parseInt(no.dados.casoAcumulado); 
+            acumulRegiao[3][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[3][2] += arv.Consultas(sul[i]+lastDate);
+        }
+
+        for (int i = 0; i < centro_oeste.length; i++) {
+            no = arv.Pesquisa(centro_oeste[i]+lastDate);
+            acumulRegiao[4][0] += Integer.parseInt(no.dados.casoAcumulado); 
+            acumulRegiao[4][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[4][2] += arv.Consultas(centro_oeste[i]+lastDate);
+        }
+
+        return acumulRegiao;
     }
 
     public static void QuickSort(String[][] matriz, int inicio, int fim) {

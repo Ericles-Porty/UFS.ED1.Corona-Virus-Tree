@@ -13,7 +13,7 @@ public abstract class Arvore {
     protected static int OBITOSACUMULADO = 8;
     protected static int OBITOSNOVOS = 9;
 
-    private int contadorPesquisa = 1; //colocar private
+    public int contadorPesquisa = 1; //colocar private
 
     protected abstract void Insere(Info dados);
     protected abstract TipoNo Insere(TipoNo raiz, Info dados, TipoNo pai);
@@ -30,15 +30,13 @@ public abstract class Arvore {
 
     private TipoNo Pesquisa(TipoNo no, String chave) {
         if (no == null) {
+            //contadorPesquisa = 1;
             return null;
         } else {
             if (no.dados.chave.compareToIgnoreCase(chave) == 0) {
-                System.out.println(no.dados);
-                System.out.println("Total de Comparacoes: " + contadorPesquisa);
-                contadorPesquisa = 0;
                 return no;
             } else {
-                contadorPesquisa++;
+                //contadorPesquisa++;
                 if (chave.compareToIgnoreCase(no.dados.chave) < 0) {
                     no = Pesquisa(no.filhoEsq, chave);
                 } else if (chave.compareToIgnoreCase(no.dados.chave) > 0) {
@@ -47,5 +45,28 @@ public abstract class Arvore {
             }
         }
         return no;
+    }
+
+    public int Consultas(String dados) {
+        return Consultas(raiz, dados);
+    }
+
+    private int Consultas(TipoNo no, String chave) {
+        if (no == null) {
+            //contadorPesquisa = 1;
+            return 1;
+        } else {
+            if (no.dados.chave.compareToIgnoreCase(chave) == 0) {
+                return contadorPesquisa;
+            } else {
+                contadorPesquisa++;
+                if (chave.compareToIgnoreCase(no.dados.chave) < 0) {
+                    Consultas(no.filhoEsq, chave);
+                } else if (chave.compareToIgnoreCase(no.dados.chave) > 0) {
+                    Consultas(no.filhoDir, chave);
+                }
+            }
+        }
+        return contadorPesquisa;
     }
 }
