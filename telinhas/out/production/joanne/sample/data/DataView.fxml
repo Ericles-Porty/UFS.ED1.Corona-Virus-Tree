@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: darkgrey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.data.DataController">
+   <children>
+      <Button fx:id="btVoltar" layoutX="490.0" layoutY="330.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="71.0" text="Voltar" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="134.0" layoutY="46.0" prefHeight="37.0" prefWidth="242.0" text="Dados gerais da Covid no " textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="125.0" prefHeight="27.0" prefWidth="139.0" text="Total de Casos:">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="193.0" prefHeight="27.0" prefWidth="139.0" text="Total de Óbitos:">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="64.0" />
+      <Label fx:id="txTipo" layoutX="374.0" layoutY="51.0" prefHeight="26.0" prefWidth="88.0" text="Tsttee" textFill="#e10c0c">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Pane layoutX="281.0" layoutY="119.0" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="txCasos" alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" prefHeight="27.0" prefWidth="200.0" text="Não encontrado">
+               <effect>
+                  <InnerShadow choke="0.76" radius="61.0875" width="225.35">
+                     <input>
+                        <Glow />
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="txCasos1" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="67.0" prefHeight="37.0" prefWidth="193.0" text="Não encontrado">
+               <effect>
+                  <InnerShadow choke="0.76" radius="61.0875" width="225.35">
+                     <input>
+                        <Glow />
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Pane layoutY="67.0" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: white;">
+               <children>
+                  <Label fx:id="txCasos2" alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" prefHeight="27.0" prefWidth="200.0" text="Não encontrado">
+                     <effect>
+                        <InnerShadow choke="0.76" radius="61.0875" width="225.35">
+                           <input>
+                              <Glow />
+                           </input>
+                        </InnerShadow>
+                     </effect>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children></Pane>
+      <Label fx:id="TxABB" layoutX="14.0" layoutY="347.0" prefHeight="17.0" prefWidth="139.0" text="Árvore Binária:  --" />
+      <Label fx:id="TxAVL" layoutX="14.0" layoutY="365.0" prefHeight="17.0" prefWidth="139.0" text="Árvore AVL:  --" />
+      <Label layoutX="14.0" layoutY="328.0" text="Buscas em" />
+   </children>
+</AnchorPane>
