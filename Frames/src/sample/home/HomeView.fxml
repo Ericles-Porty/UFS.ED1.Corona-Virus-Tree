@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: darkgrey;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.home.HomeController">
+   <children>
+      <Pane layoutX="153.0" layoutY="29.0" prefHeight="342.0" prefWidth="294.0">
+         <children>
+            <Label accessibleRole="MENU" alignment="CENTER" ellipsisString="" layoutX="69.0" prefHeight="105.0" prefWidth="157.0" text="Arvore de COVID" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Label>
+            <Button layoutX="96.0" layoutY="121.0" mnemonicParsing="false" onAction="#exibirCarregando" prefHeight="50.0" prefWidth="103.0" text="INICIAR" />
+            <Button layoutX="96.0" layoutY="209.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="103.0" text="CREDITOS" />
+            <Button layoutX="96.0" layoutY="292.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="103.0" text="FECHAR" textAlignment="CENTER" />
+            <Label fx:id="carregando" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="171.0" prefHeight="25.0" prefWidth="232.0" textAlignment="CENTER" textFill="#77ff97">
+               <font>
+                  <Font name="System Bold Italic" size="11.0" />
+               </font></Label>
+         </children>
+      </Pane>
+      <Button layoutX="14.0" layoutY="349.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="27.0" text="?" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: darkgrey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.menu.MenuController">
+   <children>
+      <Button layoutX="161.0" layoutY="173.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="119.0" text="obitos">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="321.0" layoutY="173.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="119.0" text=" casos">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="123.0" layoutY="79.0" prefHeight="57.0" prefWidth="355.0" text="DADOS DA 'REGIAO'">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="506.0" layoutY="350.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" text="VOLTAR">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
