@@ -7,12 +7,12 @@ public class Info {
     private final String coduf;
     private final String codmun;
     private final String data;
-    public final String casoAcumulado;
+    public final String casosAcumulados;
     private final String casosNovos;
-    public final String obitosAcumulado;
+    public final String obitosAcumulados;
     private final String obitosNovos;
 
-    public Info(String regiao, String estado, String municipio, String coduf, String codmun, String data, String casoAcumulado, String casosNovos, String obitosAcumulado, String obitosNovos) {
+    public Info(String regiao, String estado, String municipio, String coduf, String codmun, String data, String casosAcumulados, String casosNovos, String obitosAcumulados, String obitosNovos) {
         if (codmun.equals("")) {
             this.chave = coduf + data;
         } else
@@ -23,9 +23,9 @@ public class Info {
         this.coduf = coduf;
         this.codmun = codmun;
         this.data = data;
-        this.casoAcumulado = casoAcumulado;
+        this.casosAcumulados = casosAcumulados;
         this.casosNovos = casosNovos;
-        this.obitosAcumulado = obitosAcumulado;
+        this.obitosAcumulados = obitosAcumulados;
         this.obitosNovos = obitosNovos;
     }
 
@@ -38,9 +38,9 @@ public class Info {
                 "\ncoduf='" + coduf + '\'' +
                 "\ncodmun='" + codmun + '\'' +
                 "\ndata='" + data + '\'' +
-                "\ncasoAcumulado='" + casoAcumulado + '\'' +
+                "\ncasoAcumulado='" + casosAcumulados + '\'' +
                 "\ncasosNovos='" + casosNovos + '\'' +
-                "\nobitosAcumulado='" + obitosAcumulado + '\'' +
+                "\nobitosAcumulados='" + obitosAcumulados + '\'' +
                 "\nobitosNovos='" + obitosNovos + '\'' +
                 "\n}";
     }

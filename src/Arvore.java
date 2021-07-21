@@ -53,7 +53,6 @@ public abstract class Arvore {
 
     private int Consultas(TipoNo no, String chave) {
         if (no == null) {
-            //contadorPesquisa = 1;
             return 1;
         } else {
             if (no.dados.chave.compareToIgnoreCase(chave) == 0) {

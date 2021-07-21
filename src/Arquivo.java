@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
 
 public class Arquivo {
     public static String linhaTemp = "";
@@ -67,37 +66,43 @@ public class Arquivo {
 
         for (int i = 0; i < norte.length; i++) {
             no = arv.Pesquisa(norte[i]+lastDate);
-            acumulRegiao[0][0] += Integer.parseInt(no.dados.casoAcumulado); 
-            acumulRegiao[0][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[0][0] += Integer.parseInt(no.dados.casosAcumulados); 
+            acumulRegiao[0][1] += Integer.parseInt(no.dados.obitosAcumulados);
             acumulRegiao[0][2] += arv.Consultas(norte[i]+lastDate);
+            arv.contadorPesquisa = 0;
         }
 
         for (int i = 0; i < nordeste.length; i++) {
             no = arv.Pesquisa(nordeste[i]+lastDate);
-            acumulRegiao[1][0] += Integer.parseInt(no.dados.casoAcumulado); 
-            acumulRegiao[1][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[1][0] += Integer.parseInt(no.dados.casosAcumulados); 
+            acumulRegiao[1][1] += Integer.parseInt(no.dados.obitosAcumulados);
             acumulRegiao[1][2] += arv.Consultas(nordeste[i]+lastDate);
+            arv.contadorPesquisa = 0;
+
         }
 
         for (int i = 0; i < sudeste.length; i++) {
             no = arv.Pesquisa(sudeste[i]+lastDate);
-            acumulRegiao[2][0] += Integer.parseInt(no.dados.casoAcumulado); 
-            acumulRegiao[2][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[2][0] += Integer.parseInt(no.dados.casosAcumulados); 
+            acumulRegiao[2][1] += Integer.parseInt(no.dados.obitosAcumulados);
             acumulRegiao[2][2] += arv.Consultas(sudeste[i]+lastDate);
+            arv.contadorPesquisa = 0;
         }
 
         for (int i = 0; i < sul.length; i++) {
             no = arv.Pesquisa(sul[i]+lastDate);
-            acumulRegiao[3][0] += Integer.parseInt(no.dados.casoAcumulado); 
-            acumulRegiao[3][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[3][0] += Integer.parseInt(no.dados.casosAcumulados); 
+            acumulRegiao[3][1] += Integer.parseInt(no.dados.obitosAcumulados);
             acumulRegiao[3][2] += arv.Consultas(sul[i]+lastDate);
+            arv.contadorPesquisa = 0;
         }
 
         for (int i = 0; i < centro_oeste.length; i++) {
             no = arv.Pesquisa(centro_oeste[i]+lastDate);
-            acumulRegiao[4][0] += Integer.parseInt(no.dados.casoAcumulado); 
-            acumulRegiao[4][1] += Integer.parseInt(no.dados.obitosAcumulado);
+            acumulRegiao[4][0] += Integer.parseInt(no.dados.casosAcumulados); 
+            acumulRegiao[4][1] += Integer.parseInt(no.dados.obitosAcumulados);
             acumulRegiao[4][2] += arv.Consultas(centro_oeste[i]+lastDate);
+            arv.contadorPesquisa = 0;
         }
 
         return acumulRegiao;
