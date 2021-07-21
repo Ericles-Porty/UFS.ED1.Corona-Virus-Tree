@@ -30,18 +30,14 @@ public class Info {
     }
 
     public String toString() {
-        return "Info{" +
-                "\nchave='" + chave + '\'' +
-                "\nregiao='" + regiao + '\'' +
-                "\nestado='" + estado + '\'' +
-                "\nmunicipio='" + municipio + '\'' +
-                "\ncoduf='" + coduf + '\'' +
-                "\ncodmun='" + codmun + '\'' +
-                "\ndata='" + data + '\'' +
-                "\ncasoAcumulado='" + casosAcumulados + '\'' +
-                "\ncasosNovos='" + casosNovos + '\'' +
-                "\nobitosAcumulados='" + obitosAcumulados + '\'' +
-                "\nobitosNovos='" + obitosNovos + '\'' +
-                "\n}";
+        return "Informacoes da folha" +
+                "\n[Regiao= " + regiao + ']' +
+                "\n[Estado= " + estado + ']' +
+                "\n[Municipio= " + municipio + ']' +
+                "\n[Data= " + data + ']' +
+                "\n[CasoAcumulado= " + casosAcumulados + ']' +
+                "\n[CasosNovos= " + casosNovos + ']' +
+                "\n[CbitosAcumulados= " + obitosAcumulados + ']' +
+                "\n[CobitosNovos= " + obitosNovos + ']';
     }
 }
