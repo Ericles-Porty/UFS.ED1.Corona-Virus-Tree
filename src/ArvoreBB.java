@@ -21,7 +21,7 @@ public final class ArvoreBB extends Arvore {
 
     public void InserirBIN(String[][] matriz, int i, int j) {
         int posicaoLinha = (i + j) / 2;
-        dados = new Info(matriz[posicaoLinha][REGIAO], matriz[posicaoLinha][ESTADO], matriz[posicaoLinha][MUNICIPIO], matriz[posicaoLinha][CODUF], matriz[posicaoLinha][CODMUN], matriz[posicaoLinha][DATA],  matriz[posicaoLinha][CASOSACUMULADO], matriz[posicaoLinha][CASOSNOVOS], matriz[posicaoLinha][OBITOSACUMULADO], matriz[posicaoLinha][OBITOSNOVOS]);
+        dados = new Info(matriz[posicaoLinha][REGIAO], matriz[posicaoLinha][ESTADO], matriz[posicaoLinha][MUNICIPIO], matriz[posicaoLinha][CODUF], matriz[posicaoLinha][CODMUN], matriz[posicaoLinha][DATA], matriz[posicaoLinha][CASOSACUMULADO], matriz[posicaoLinha][CASOSNOVOS], matriz[posicaoLinha][OBITOSACUMULADO], matriz[posicaoLinha][OBITOSNOVOS]);
         Insere(dados);
         if (i < j) {
             InserirBIN(matriz, i, posicaoLinha - 1);
@@ -29,7 +29,6 @@ public final class ArvoreBB extends Arvore {
         }
     }
 
-    public void Avl(TipoNo no) {}
-
-    public void InserirAVL(String[][] matriz, int i, int j) { }
+    public void InserirAVL(String[][] matriz, int i, int j) {
+    }
 }

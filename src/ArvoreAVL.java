@@ -9,7 +9,6 @@ public final class ArvoreAVL extends Arvore {
 
     @Override
     public void Insere(Info dados) {
-        //System.out.print("Inserindo " + dados.chave + "\n");
         raiz = Insere(raiz, dados, null);
         Avl(p);
     }
@@ -31,12 +30,12 @@ public final class ArvoreAVL extends Arvore {
 
 
     public void InserirAVL(String[][] matriz, int i, int j) {
-        for(i = 0; i < j; i++) {
+        for (i = 0; i < j; i++) {
             dados = new Info(matriz[i][REGIAO], matriz[i][ESTADO], matriz[i][MUNICIPIO], matriz[i][CODUF], matriz[i][CODMUN], matriz[i][DATA], matriz[i][CASOSACUMULADO], matriz[i][CASOSNOVOS], matriz[i][OBITOSACUMULADO], matriz[i][OBITOSNOVOS]);
             Insere(dados);
         }
-    }    
-    
+    }
+
 
     public void Avl(TipoNo no) {
         if (no != null) {
@@ -47,26 +46,23 @@ public final class ArvoreAVL extends Arvore {
 
                 if (no.alturaEsq >= no.alturaDir)
                     if (no.filhoEsq.alturaEsq >= no.filhoEsq.alturaDir) {
-                        //System.out.print("Rotacao simples de " + no.dados.chave + " para a direita\n");
                         RotacaoDireita(no);
                     } else {
-                        //System.out.print("Rotacao dupla de " + no.dados.chave + " para a direita\n");
                         RotacaoEsquerda(no.filhoEsq);
                         RotacaoDireita(no);
                     }
 
                 if (no.alturaDir >= no.alturaEsq)
                     if (no.filhoDir.alturaDir >= no.filhoDir.alturaEsq) {
-                        //System.out.print("Rotacao simples de " + no.dados.chave + " para a esquerda\n");
                         RotacaoEsquerda(no);
                     } else {
-                        //System.out.print("Rotacao dupla de " + no.dados.chave + " para a esquerda\n");
                         RotacaoDireita(no.filhoDir);
                         RotacaoEsquerda(no);
                     }
             }
         }
     }
+
     public int Balanco(TipoNo no) {
         altura = 0;
         BalanceamentoPreOrdem(no.filhoEsq, 0);
@@ -124,6 +120,6 @@ public final class ArvoreAVL extends Arvore {
         }
     }
 
-    @Override
-	protected void InserirBIN(String[][] matriz, int i, int j) {}
+    protected void InserirBIN(String[][] matriz, int i, int j) {
+    }
 }

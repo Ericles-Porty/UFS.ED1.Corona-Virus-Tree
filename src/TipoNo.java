@@ -4,8 +4,8 @@ public class TipoNo {
     TipoNo filhoDir;
     Info dados;
     int fatorBalanceamento = 0;
-	int alturaEsq = 0;
-	int alturaDir = 0;
+    int alturaEsq = 0;
+    int alturaDir = 0;
 
     public TipoNo(Info dados, TipoNo pai) {
         this.dados = dados;

@@ -7,12 +7,12 @@ public class Info {
     private final String coduf;
     private final String codmun;
     private final String data;
-    public final String casoAcumulado;
+    public final String casosAcumulados;
     private final String casosNovos;
-    public final String obitosAcumulado;
+    public final String obitosAcumulados;
     private final String obitosNovos;
 
-    public Info(String regiao, String estado, String municipio, String coduf, String codmun, String data, String casoAcumulado, String casosNovos, String obitosAcumulado, String obitosNovos) {
+    public Info(String regiao, String estado, String municipio, String coduf, String codmun, String data, String casosAcumulados, String casosNovos, String obitosAcumulados, String obitosNovos) {
         if (codmun.equals("")) {
             this.chave = coduf + data;
         } else
@@ -23,25 +23,21 @@ public class Info {
         this.coduf = coduf;
         this.codmun = codmun;
         this.data = data;
-        this.casoAcumulado = casoAcumulado;
+        this.casosAcumulados = casosAcumulados;
         this.casosNovos = casosNovos;
-        this.obitosAcumulado = obitosAcumulado;
+        this.obitosAcumulados = obitosAcumulados;
         this.obitosNovos = obitosNovos;
     }
 
     public String toString() {
-        return "Info{" +
-                "\nchave='" + chave + '\'' +
-                "\nregiao='" + regiao + '\'' +
-                "\nestado='" + estado + '\'' +
-                "\nmunicipio='" + municipio + '\'' +
-                "\ncoduf='" + coduf + '\'' +
-                "\ncodmun='" + codmun + '\'' +
-                "\ndata='" + data + '\'' +
-                "\ncasoAcumulado='" + casoAcumulado + '\'' +
-                "\ncasosNovos='" + casosNovos + '\'' +
-                "\nobitosAcumulado='" + obitosAcumulado + '\'' +
-                "\nobitosNovos='" + obitosNovos + '\'' +
-                "\n}";
+        return "Informacoes da folha" +
+                "\n[Regiao= " + regiao + ']' +
+                "\n[Estado= " + estado + ']' +
+                "\n[Municipio= " + municipio + ']' +
+                "\n[Data= " + data + ']' +
+                "\n[CasoAcumulado= " + casosAcumulados + ']' +
+                "\n[CasosNovos= " + casosNovos + ']' +
+                "\n[CbitosAcumulados= " + obitosAcumulados + ']' +
+                "\n[CobitosNovos= " + obitosNovos + ']';
     }
 }
